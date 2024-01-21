@@ -10,9 +10,8 @@
 
 <style>
 	main {
-		width: 100%;
 		padding-top: 100%;
-		background-color: #1b1b1b;
+		background-color: #f5f4f4;
 		width: 100%;
 		margin-right: auto;
 		position: relative;

@@ -28,8 +28,8 @@
 				height: 1200,
 				margin: 0,
 				color: {
-					dark: "#FFFFFF", // Couleur des pixels (blanc)
-					light: "#000000", // Couleur de fond (noir)
+					dark: "#000", // Couleur des pixels (blanc)
+					light: "#fff", // Couleur de fond (noir)
 				},
 			};
 			await QRCode.toCanvas(canvas, text, qrOptions);
@@ -47,7 +47,7 @@
 
 <main>
 	<div>
-		<p>Enter a url to create a QR code</p>
+		<h5>Enter a url to create a QR code</h5>
 		<input type="text" placeholder="https://your-website.com" maxlength="256" bind:value={text} on:input={updateQRCode} />
 	</div>
 	<Code bind:canvas {base64} />
@@ -56,14 +56,27 @@
 <style>
 	:global(body) {
 		margin: 0;
-		background-color: #000;
-		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+		background-color: #fff;
+		font-family: Inter, sans-serif;
+		font-feature-settings:
+			"liga" 1,
+			"calt" 1;
 		color: #fff;
 		font-size: 14px;
 		line-height: 20px;
 	}
 	:global(*) {
 		box-sizing: border-box;
+		font-family: inherit;
+	}
+	:global(h5) {
+		margin-bottom: 1rem;
+		margin-top: 0;
+		font-weight: 600;
+		margin-bottom: 1.2em;
+		font-size: 1.25rem;
+		color: #000;
+		line-height: 1;
 	}
 	main {
 		display: grid;
@@ -91,24 +104,22 @@
 			grid-template-columns: 1fr;
 		}
 	}
-	p {
-		margin-bottom: 1.2em;
-		font-size: 1.6em;
-		color: #fff;
-		line-height: 1;
-		margin-top: 0;
-	}
 	input {
-		height: 3.2em;
+		height: 3rem;
 		margin-bottom: 0px;
 		display: block;
 		width: 100%;
-		padding: 0px 1.3em;
+		font-weight: 500;
+		padding: 0px 1.2rem;
 		border: 1px solid transparent;
-		border-radius: 0.6em;
-		background-color: #242424;
-		color: #fff;
-		font-size: 1.7em;
+		border-radius: 0.5rem;
+		background-color: #f5f4f4;
+		color: #000;
+		font-size: 1.25rem;
 		line-height: 1;
+		outline: none;
+	}
+	input:focus {
+		background-color: #f1f0f0;
 	}
 </style>
