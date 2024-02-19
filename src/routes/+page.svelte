@@ -46,14 +46,25 @@
 </script>
 
 <main>
-	<div>
-		<h5>Enter a url to create a QR code</h5>
-		<input type="text" placeholder="https://your-website.com" maxlength="256" bind:value={text} on:input={updateQRCode} />
-	</div>
-	<Code bind:canvas {base64} />
+	<h1>QR Code generator</h1>
+	<p class="subtitle">Type in your URL and get a QR Code.</p>
+	<section>
+		<div>
+			<h5>Enter a url to create a QR code</h5>
+			<input type="text" placeholder="https://your-website.com" maxlength="256" bind:value={text} on:input={updateQRCode} />
+		</div>
+		<Code bind:canvas {base64} />
+	</section>
 </main>
 
 <style>
+	.subtitle {
+		font-size: 1.5rem;
+    line-height: 2.25rem;
+    letter-spacing: -.03em;
+		color: rgb(108, 114, 117);
+		text-align: center;
+	}
 	:global(body) {
 		margin: 0;
 		background-color: #fff;
@@ -79,13 +90,26 @@
 		line-height: 1;
 	}
 	main {
-		display: grid;
 		width: 100%;
 		max-width: 80em;
 		min-height: 100vh;
 		margin-right: auto;
 		margin-left: auto;
 		padding: 3.4em;
+		padding-top: 8rem;
+    padding-bottom: 8rem;
+	}
+	h1 {
+		text-align: center;
+		margin-top: 0;
+		margin-bottom: 1.5rem;
+		color: #000;
+		font-size: 3rem;
+    line-height: 3.5rem;
+    letter-spacing: -.025em;
+	}
+	section {
+		display: grid;
 		justify-content: center;
 		align-items: center;
 		grid-auto-columns: 1fr;
